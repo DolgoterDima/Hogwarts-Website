@@ -1,0 +1,14 @@
+.day {
+    border-radius: 20px;
+    padding: 40px;
+    border: 2px purple solid;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.day__degrees {
+}
+
+.day__degrees--celsius {
+}

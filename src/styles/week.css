@@ -1,0 +1,15 @@
+.week{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.week__title {
+}
+
+.week__days {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
