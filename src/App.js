@@ -30,22 +30,39 @@ function App() {
     isCelsius: true,
   });*/
 
-  const addDay = (e, newDay='default new day') => {
+  const addDay = (e, newDay = "default new day") => {
     e.preventDefault();
-   daysArrChange([...daysArr, newDay]);
+    daysArrChange([...daysArr, newDay]);
   };
   const deleteDay = (e, postIdToDelete) => {
     e.preventDefault();
-    console.log('postIdToDelete',postIdToDelete)
-   const arrayWithoutDeletedDay= daysArr.filter(({id})=>id!==postIdToDelete)
+    console.log("postIdToDelete", postIdToDelete);
+    const arrayWithoutDeletedDay = daysArr.filter(
+      ({ id }) => id !== postIdToDelete
+    );
 
     daysArrChange([...arrayWithoutDeletedDay]);
   };
+
+  /* glossary sorting*/
+  const sorting = {
+    "by degrees": "by degrees",
+    "by wind speed": "by degrees",
+  };
+  const changeOrder = (type) => {};
+
   return (
     <div className="App">
       <header className="App-header">
-        <weekContext.Provider value={{ daysArray:daysArr, addNewDay: addDay, deleteDay }}>
-          <AddInfoForm/>
+        <weekContext.Provider
+          value={{
+            daysArray: daysArr,
+            addNewDay: addDay,
+            deleteDay,
+            changeOrder,
+          }}
+        >
+          <AddInfoForm />
           <Week daysData={daysArr} title={"Week Title"} />
         </weekContext.Provider>
       </header>
