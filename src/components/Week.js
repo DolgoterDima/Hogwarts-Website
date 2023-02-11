@@ -9,12 +9,21 @@ const Week = ({ daysData, title }) => {
   // const childToParent = (childdata) => {
   //   setEmitChildToParent(childdata);
   // };
+
+  /* glossary sorting*/
+  const sorting = {
+    "by degrees": "by degrees",
+    "by wind speed": "by degrees",
+  };
+
+  const changeOrder = (type) => type;
+
   return (
     <div className="week">
       <h2 className="week__title">{title}</h2>
       <div className="week__sorting">
         <select name="" id="">
-          <option value="degrees">degrees</option>
+          <option value="{sorting}">degrees</option>
           <option value="wind">wind speed</option>
         </select>
       </div>

@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  margin: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &__row {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid #00b4f8;
+    margin-bottom: 20px;
+    padding: 10px;
+    &--full{
+      width: 100%;
+    }
+  }
+
+  &__label {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+
+  &__input {
+    border: 1px solid lightblue;
+    outline: 1px solid lightblue;
+    background-color: lightgray;
+    &--checkbox {
+      border: 1px solid transparent;
+      outline: 1px solid transparent;
+    }
+  }
+}

@@ -44,13 +44,6 @@ function App() {
     daysArrChange([...arrayWithoutDeletedDay]);
   };
 
-  /* glossary sorting*/
-  const sorting = {
-    "by degrees": "by degrees",
-    "by wind speed": "by degrees",
-  };
-  const changeOrder = (type) => {};
-
   return (
     <div className="App">
       <header className="App-header">
@@ -59,7 +52,6 @@ function App() {
             daysArray: daysArr,
             addNewDay: addDay,
             deleteDay,
-            changeOrder,
           }}
         >
           <AddInfoForm />
