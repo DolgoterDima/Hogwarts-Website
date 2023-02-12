@@ -17,59 +17,67 @@ const AddInfoForm = () => {
 
   return (
     <form className="form">
-      <div className="form__row">
-        <label className="form__label" htmlFor="degrees">
-          Degrees
-        </label>
-        <input
-          className="form__input"
-          id="degrees"
-          type="number"
-          placeholder="add celsium"
-          value={fromDataInfo.degrees}
-          onChange={(event) =>
-            setFromDataInfo({ ...fromDataInfo, degrees: event.target.value })
-          }
-        />
+      <div className="field  ">
+        <label className="label">Degrees</label>
+        <div className="control">
+          <input
+            className="input"
+            type="number"
+            placeholder="add celsium"
+            value={fromDataInfo.degrees}
+            onChange={(event) =>
+              setFromDataInfo({
+                ...fromDataInfo,
+                degrees: event.target.value,
+              })
+            }
+          />
+        </div>
+      </div>
+      <div className="field">
+        <div className="control">
+          <label className="checkbox">
+            <input
+              type="checkbox"
+              onChange={(event) =>
+                setFromDataInfo({
+                  ...fromDataInfo,
+                  isCelsius: event.target.checked,
+                })
+              }
+            />
+            Use celsius
+          </label>
+        </div>
       </div>
 
-      <div className="form__row">
-        <label className="form__label" htmlFor="isCelsius">
-          Use celsius
-        </label>
-        <input
-          className="form__input form__input--checkbox"
-          id="isCelsius"
-          type="checkbox"
-          name="isCelsius"
-          onChange={(event) =>
-            setFromDataInfo({
-              ...fromDataInfo,
-
-              isCelsius: event.target.checked,
-            })
-          }
-        />
+      <div className="field">
+        <label className="label"> Wind speed</label>
+        <div className="control">
+          <input
+            className="input"
+            type="number"
+            placeholder="add wind speed"
+            value={fromDataInfo.windSpeed}
+            onChange={(event) =>
+              setFromDataInfo({
+                ...fromDataInfo,
+                windSpeed: event.target.value,
+              })
+            }
+          />
+        </div>
       </div>
 
-      <div className="form__row">
-        <label className="form__label" htmlFor="windspeed">
-          Wind speed
-        </label>
-        <input
-          className="form__input form__input--checkbox"
-          id="windspeed"
-          type="number"
-          placeholder="add wind speed"
-          value={fromDataInfo.windSpeed}
-          onChange={(event) =>
-            setFromDataInfo({ ...fromDataInfo, windSpeed: event.target.value })
-          }
-        />
-      </div>
-      {/*   перезапись только одного параметра*/}
-      <div className="form__row form__row--full">
-        <button onClick={(event) => addNewDay(event, newDay)}>add</button>
+      <div className="field is-grouped">
+        <div className="control">
+          <button
+            className="button is-link"
+            onClick={(event) => addNewDay(event, newDay)}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </form>
   );

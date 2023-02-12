@@ -1,12 +1,21 @@
 import "./App.css";
 import React, { useState } from "react";
-
 import AddInfoForm from "./components/AddInfoForm";
 import "../src/styles/week.css";
+
+import { Routes, Route } from "react-router-dom";
+import AdminPage from "./pages/admin";
+import HomePage from "./pages/HomePage";
 
 import Week from "./components/Week";
 
 import { weekContext } from "./helpers/context";
+import AddNewDay from "./pages/admin/AddNewDay";
+
+import PostPage from "./pages/admin/PostPage";
+
+import MainLayout from "./layouts/MainLayout";
+import AdminLayout from "./layouts/AdminLayout";
 
 function App() {
   let [degrees, setDegrees] = useState({
@@ -46,8 +55,20 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <weekContext.Provider
+      <Routes>
+        {/*where to show all user content*/}
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/blog/:post" element={<PostPage />} />
+        </Route>
+
+        {/*where to show all admin content*/}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminPage />} />
+          <Route path="/admin/add-new-day" element={<AddNewDay />} />
+        </Route>
+      </Routes>
+      {/*    <weekContext.Provider
           value={{
             daysArray: daysArr,
             addNewDay: addDay,
@@ -56,8 +77,7 @@ function App() {
         >
           <AddInfoForm />
           <Week daysData={daysArr} title={"Week Title"} />
-        </weekContext.Provider>
-      </header>
+        </weekContext.Provider>*/}
     </div>
   );
 }
