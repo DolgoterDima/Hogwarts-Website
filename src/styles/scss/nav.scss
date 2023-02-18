@@ -1,0 +1,18 @@
+.nav{
+  display: flex;
+
+  align-items: center;
+  width: 100%;
+  &__link{
+    font-size: 20px;
+    color: hsl(171, 100%, 41%);
+    border-bottom:2px solid transparent;
+    transition: all .3s;
+    padding: 10px 5px;
+
+
+    &--active{
+      border-bottom:2px solid hsl(171, 100%, 41%);
+    }
+  }
+}

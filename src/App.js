@@ -1,5 +1,10 @@
 import "./App.css";
 import React, { useState } from "react";
+
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { rootReducer } from "./store/reducers";
+
 import AddInfoForm from "./components/AddInfoForm";
 import "../src/styles/week.css";
 
@@ -11,13 +16,23 @@ import Week from "./components/Week";
 
 import { weekContext } from "./helpers/context";
 import AddNewDay from "./pages/admin/AddNewDay";
+import CheckAuth from "./hoc/CheckAuth";
 
 import PostPage from "./pages/admin/PostPage";
+import BlogPage from "./pages/BlogPage";
 
 import MainLayout from "./layouts/MainLayout";
 import AdminLayout from "./layouts/AdminLayout";
+import LoginPage from "./pages/LoginPage";
+import StudentsPage from "./pages/public/StudentsPage";
+import AddNewStudentPage from "./pages/admin/addNewStudentPage";
 
 function App() {
+  const store =
+    createStore(
+      rootReducer
+    ); /*rootReducer  for combine all reducers (store modules)*/
+
   let [degrees, setDegrees] = useState({
     name: "",
     email: "",
@@ -55,19 +70,40 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
-        {/*where to show all user content*/}
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/blog/:post" element={<PostPage />} />
-        </Route>
+      <Provider store={store}>
+        {/* for redux*/}
+        <Routes>
+          {/*where to show all user content*/}
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/students" element={<StudentsPage />} />
 
-        {/*where to show all admin content*/}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminPage />} />
-          <Route path="/admin/add-new-day" element={<AddNewDay />} />
-        </Route>
-      </Routes>
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:postId" element={<PostPage />} />
+          </Route>
+
+          {/*where to show all admin content*/}
+          <Route path="/admin" element={<AdminLayout />}>
+            {/*
+          if user a is auth show admin page or redirect to login
+*/}
+            <Route
+              index
+              element={
+                <CheckAuth>
+                  <AdminPage />
+                </CheckAuth>
+              }
+            />
+            <Route path="/admin/add-new-day" element={<AddNewDay />} />
+            <Route
+              path="/admin/add-new-student"
+              element={<AddNewStudentPage />}
+            />
+          </Route>
+        </Routes>
+      </Provider>
       {/*    <weekContext.Provider
           value={{
             daysArray: daysArr,

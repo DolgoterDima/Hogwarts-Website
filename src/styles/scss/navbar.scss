@@ -1,0 +1,66 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  position: relative;
+
+z-index: 20;
+  @include responsive(md) {
+    flex-wrap: wrap;
+  }
+
+  &__left {
+    width: 40%;
+    @include responsive(md) {
+      width: 100%;
+      order: 3;
+      position: absolute;
+      top: 100%;
+      display: none;
+      background-color: white;
+    }
+    &--opened{
+      @include responsive(md) {
+       display: flex;
+      }
+    }
+  }
+  &__nav {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include responsive(md) {
+      position: static;
+      order: 1;
+      transform: none;
+    }
+  }
+
+  &__right {
+    @include responsive(md) {
+      order: 2;
+    }
+  }
+  &__logo {
+    width: 80px;
+    @include responsive(md) {
+      width: 40px;
+    }
+  }
+  &__button{
+
+    &--menu{
+display: none;
+      @include responsive(md) {
+    display: block;
+      }
+    }
+  }
+}

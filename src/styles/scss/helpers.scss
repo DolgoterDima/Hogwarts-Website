@@ -1,0 +1,12 @@
+.d-desk{
+  display: flex;
+  @include responsive(md) {
+    display: none;
+  }
+}
+.d-mob{
+  display: none;
+  @include responsive(md) {
+    display: flex;
+  }
+}

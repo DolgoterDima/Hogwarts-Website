@@ -2,14 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Nav = ({ links }) => {
-  const isActiveLink = ({ isActive }) =>
+  const setActiveLink = ({ isActive }) =>
     isActive ? "nav__link nav__link--active" : "nav__link";
   return (
-    <nav className="nav">
+    <nav className="nav  ">
       {links.length
         ? links.map(({ link, text }) => {
             return (
-              <NavLink to={link} key={link} className={isActiveLink}>
+              /*   */
+              <NavLink to={link} key={link} className={setActiveLink}>
                 {text}
               </NavLink>
             );
