@@ -6,7 +6,7 @@ const CheckAuth = ({ children }) => {
   const location = useLocation();
   const auth = false;
 
-  if (!auth) {
+  if (auth) {
     /* if you are not auth redirect to login page */
     return <Navigate to="/login" state={{ fromPage: location }} />;
   }

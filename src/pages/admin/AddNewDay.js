@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AddInfoForm from "../../components/AddInfoForm";
 import { weekContext } from "../../helpers/context";
-import Week from "../../components/Week";
 
 const AddNewDay = () => {
   let [daysArr, daysArrChange] = useState([

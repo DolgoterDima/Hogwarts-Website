@@ -1,0 +1,16 @@
+.student-card {
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/.8;
+  }
+
+  &__name {
+  }
+
+  &__bday {
+  }
+}

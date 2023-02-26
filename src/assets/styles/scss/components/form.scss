@@ -1,0 +1,25 @@
+.form {
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+     }
+  &__fieldset{
+    border: 2px solid hsl(171, 100%, 41%);
+  }
+  &__fieldset-legend{
+    padding: 0 20px;
+margin-left: 20px;
+
+
+  }
+
+  &__label {
+
+  }
+
+
+
+}

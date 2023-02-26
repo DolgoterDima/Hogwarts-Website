@@ -1,20 +1,13 @@
 import "./App.css";
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { rootReducer } from "./store/reducers";
 
-import AddInfoForm from "./components/AddInfoForm";
-import "../src/styles/week.css";
+import store from "./store";
 
 import { Routes, Route } from "react-router-dom";
 import AdminPage from "./pages/admin";
 import HomePage from "./pages/HomePage";
 
-import Week from "./components/Week";
-
-import { weekContext } from "./helpers/context";
 import AddNewDay from "./pages/admin/AddNewDay";
 import CheckAuth from "./hoc/CheckAuth";
 
@@ -23,16 +16,12 @@ import BlogPage from "./pages/BlogPage";
 
 import MainLayout from "./layouts/MainLayout";
 import AdminLayout from "./layouts/AdminLayout";
+
 import LoginPage from "./pages/LoginPage";
 import StudentsPage from "./pages/public/StudentsPage";
-import AddNewStudentPage from "./pages/admin/addNewStudentPage";
+import StudentsPageAdmin from "./pages/admin/StudentsPageAdmin";
 
 function App() {
-  const store =
-    createStore(
-      rootReducer
-    ); /*rootReducer  for combine all reducers (store modules)*/
-
   let [degrees, setDegrees] = useState({
     name: "",
     email: "",
@@ -50,9 +39,9 @@ function App() {
   ]);
 
   /*  let [fromDataInfo, setFromDataInfo] = useState({
-    degrees: Math.ceil(Math.random() * (30 - -30) + -30),
-    isCelsius: true,
-  });*/
+      degrees: Math.ceil(Math.random() * (30 - -30) + -30),
+      isCelsius: true,
+    });*/
 
   const addDay = (e, newDay = "default new day") => {
     e.preventDefault();
@@ -97,10 +86,7 @@ function App() {
               }
             />
             <Route path="/admin/add-new-day" element={<AddNewDay />} />
-            <Route
-              path="/admin/add-new-student"
-              element={<AddNewStudentPage />}
-            />
+            <Route path="/admin/students" element={<StudentsPageAdmin />} />
           </Route>
         </Routes>
       </Provider>

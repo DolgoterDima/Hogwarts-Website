@@ -1,15 +1,15 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import StudentCard from "../../components/cards/studentCard";
 
 const StudentsPage = () => {
-  const allStudents = useSelector((state) => state.students); //get students module from store
+  const dispatchFetchUser = useDispatch();
+
+  useEffect(() => {}, []);
+
   return (
     <div>
-      <ul>
-        {allStudents.map((item) => {
-          return <p key={item.id}>{item.name}</p>;
-        })}
-      </ul>
+      <ul></ul>
     </div>
   );
 };

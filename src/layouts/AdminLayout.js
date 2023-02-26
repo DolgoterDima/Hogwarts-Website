@@ -5,7 +5,7 @@ import Nav from "../components/Nav";
 /*components*/
 import Navbar from "../components/Navbar";
 
-const MainLayout = () => {
+const AdminLayout = () => {
   const links = [
     {
       link: "/",
@@ -20,8 +20,8 @@ const MainLayout = () => {
       text: "Add new day",
     },
     {
-      link: "/admin/add-new-student",
-      text: "Add new student",
+      link: "/admin/students",
+      text: "Students",
     },
   ];
 
@@ -33,8 +33,7 @@ const MainLayout = () => {
           <Nav links={links} />
         </header>
         <main className="main">
-          <Outlet />
-          {/* основное содержимое страницы*/}
+          <Outlet /> {/* основное содержимое страницы*/}
         </main>
         <footer>admin footer</footer>
       </div>
@@ -42,4 +41,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default AdminLayout;

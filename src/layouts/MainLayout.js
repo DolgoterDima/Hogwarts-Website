@@ -18,10 +18,10 @@ const MainLayout = () => {
       link: "/students",
       text: "students",
     },
-    /*   {
+    {
       link: "/admin",
       text: "admin",
-    },*/
+    },
   ];
 
   return (

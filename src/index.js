@@ -2,10 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-import "./styles/scss/index.scss";
+import "./assets/styles/scss/index.scss";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Parse from "parse/dist/parse.min";
+
+Parse.initialize(
+  "eMnZdawNWytwhfx2YnqsW34SFOwaEyb1auGmjTij",
+  "6JuYXAvQ54W58euzw55ySwx99y8pntwKQadcTtwo"
+);
+Parse.serverURL = "https://parseapi.back4app.com";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
