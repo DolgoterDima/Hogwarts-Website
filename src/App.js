@@ -95,8 +95,7 @@ function App() {
             daysArray: daysArr,
             addNewDay: addDay,
             deleteDay,
-          }}
-        >
+          }} >
           <AddInfoForm />
           <Week daysData={daysArr} title={"Week Title"} />
         </weekContext.Provider>*/}
